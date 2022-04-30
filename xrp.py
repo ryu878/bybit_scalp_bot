@@ -92,8 +92,9 @@ while True:
 
     # TP 
         
-    if tp_order == False and sell_position_size != 0 and bid > min_tp_distance:
+    if tp_order == False and sell_position_size != 0 and bid > min_tp_distance: # if no TP and Bid higher than TP place Limit
         try:
+            print('==> Placing TP Order...')
             place_active_order = client.place_active_order(
             side="Buy",symbol=symbol,order_type="Limit",
             price=min_tp_distance,
@@ -104,8 +105,9 @@ while True:
     else:
         pass
 
-    if tp_order == False and sell_position_size != 0 and bid < min_tp_distance:
+    if tp_order == False and sell_position_size != 0 and bid < min_tp_distance: # if no TP and Bid lower than TP close with Market
         try:
+            print('==> Placing TP Order...')
             place_active_order = client.place_active_order(
             side="Buy",symbol=symbol,order_type="Market",
             qty=sell_position_size)
@@ -114,12 +116,11 @@ while True:
     else:
         pass
         
-    if tp_order == True and sell_position_size > buy_order_size:
+    if tp_order == True and sell_position_size > buy_order_size: # if position size not equal to TP size cancel TP and place new with correct amount
         try:               
+            print('==> Canceling TP Order...')
             cancel_active_order = client.cancel_active_order(order_id=buy_order_id)
-        except:
-            pass
-        try:               
+            print('==> Placing TP Order...')
             place_active_order = client.place_active_order(
                 side="Buy",symbol=symbol,order_type="Limit",
                 price=min_tp_distance,
@@ -132,14 +133,16 @@ while True:
 
     # Entry
 
-    if sell_position_size == 0:
+    if sell_position_size == 0: # if no entry and ask > EMA 6 High place Limit entry
         try:               
+            print('==> Canceling Active Entry Order...')
             cancel_active_order = client.cancel_active_order(order_id=sell_order_id)
         except:
             pass
     
-    if ask > ema6hgh and sell_position_size == 0:
+    if ask > ema6hgh and sell_position_size == 0: # if no entry and ask > EMA 6 High place Limit entry
         try:               
+            print('==> Placing Entry Order...')
             place_active_order = client.place_active_order(
                 side="Sell",symbol=symbol,order_type="Limit",
                 price=ask,
@@ -152,12 +155,14 @@ while True:
 
     if sell_position_size >= qty1:
         try:                          
+            print('==> Canceling Active Average Entry Order...')
             cancel_active_order = client.cancel_active_order(order_id=sell_order_id)
         except:
             pass
     
     if sell_position_size >= qty1 and ema6low > sell_position_prce and ask > ema6hgh and sell_position_size < maxq:
         try:               
+            print('==> Placing Active Average Entry Order...')
             place_active_order = client.place_active_order(
                 side="Sell",symbol=symbol,order_type="Limit",
                 price=ask,
@@ -168,9 +173,13 @@ while True:
 
     if ask > ema6hgh:
         print('Ask > EMA 6 High') 
-    if ema6low > sell_position_prce and sell_position_prce != 0:
-        print('EMA 6 Low > Enty Price, Ready to Average!!!')
+    # if ema6low > sell_position_prce and sell_position_prce != 0:
+    #    print('EMA 6 Low > Enty Price, Ready to Average!!!')
 
-    print(sell_position_prce, ema6low)
+    if maxq > sell_position_size:
+        print('Size is OK')
+    
+    print('Pos Prc:',sell_position_prce, '| EMA 6 Hgh:',ema6hgh)
+    print('Pos Siz:',sell_position_size, '| EMA 6 Low:',ema6low)
 
     time.sleep(3)
