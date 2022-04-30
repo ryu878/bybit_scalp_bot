@@ -7,7 +7,7 @@ This simple bot written with python and it enters the market using limit orders 
 <br>
 <strong>How to use</strong>
 
-- Edit config.py file, add you API credentials and change initial grid lot size.
+- Edit config.py file, add you API credentials and change initial lot size.
 - Run python3 xrp.py
 
 <br>
