@@ -1,4 +1,4 @@
-# bybit scalp bot
+# Bybit Scalp Bot
 Simple scalp bot for Bybit USDT Perpetual futures written on python
 
 This bot will execute only short trades
@@ -12,7 +12,7 @@ Run pip install to install:
 - numpy
 
 
-To start trading on Binance Futures and earn rebates register here: https://www.binance.com/en/futures/ref/421719790
+To start trading on Bybit please register here: https://www.bybit.com/en-US/invite?ref=P11NJW
 
 <br>
 <strong>Disclaimer</strong>
