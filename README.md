@@ -10,7 +10,7 @@ This simple bot written with python and it enters the market using limit orders 
 - Run python3 xrp.py
 
 ## Entry logic
-Bot will check EMA 6 Highand if price higher it will start placing entry sell orders. It will add x2 size if EMA6 Low > Entry Price.
+Bot will check EMA 6 High and if price higher it will start placing entry sell orders. It will add x2 size if EMA6 Low > Entry Price.
 This bot will execute only short trades
 
 ## Requirements
@@ -21,6 +21,8 @@ Run pip install to install:
 - pandas
 - pybit
 
+## Known issue
+Sometimes (very rare) Bybit API return less than 18 candles of OHCL data so it is impossible to calculate EMA 6. Will change that for websocket in new versions for more stable results.
 
 To start trading on Bybit please register here: https://www.bybit.com/en-US/invite?ref=P11NJW
 
