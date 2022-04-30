@@ -20,7 +20,7 @@ Run pip install to install:
 - pybit
 
 
-### To start trading on Bybit please register here: https://www.bybit.com/en-US/invite?ref=P11NJW
+##### To start trading on Bybit please register here: https://www.bybit.com/en-US/invite?ref=P11NJW
 
 
 ## Disclaimer
