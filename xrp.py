@@ -177,7 +177,7 @@ while True:
     #    print('EMA 6 Low > Enty Price, Ready to Average!!!')
 
     if maxq > sell_position_size:
-        print('Size is OK')
+        print('🗹 Size is OK')
     
     print('Pos Prc:',sell_position_prce, '| EMA 6 Hgh:',ema6hgh)
     print('Pos Siz:',sell_position_size, '| EMA 6 Low:',ema6low)
