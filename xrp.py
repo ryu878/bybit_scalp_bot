@@ -122,11 +122,11 @@ while True:
     get_6ema()
     print('|   EMA 6 High:',ema6hgh, '|', ema6low, ':EMA 6 Low')
 
-    get_60ema()
-    print('| EMA 60 Close:' ,ema60)
+    # get_60ema()
+    # print('| EMA 60 Close:' ,ema60)
     
     getOrderBook()
-    print('|          Ask:',ema60, '|', bid, ':Bid')
+    print('|          Ask:',ask, '|', bid, ':Bid')
     
     get_position()
     get_buy_order()
@@ -140,9 +140,11 @@ while True:
     good_stoch_80 = real_sto > 80 and real_stos > 80
     good_stoch_20 = real_sto < 20 and real_stos < 20
 
+    # good_EMA60 = bid > ema60
+
     # TP 
         
-    if tp_order == False and sell_position_size != 0 and bid > min_tp_distance: # if no TP and Bid higher than TP place Limit
+    if tp_order == False and sell_position_size != 0 and bid > min_tp_distance:
         try:
             print('| ➟ Placing TP...')
             place_active_order = client.place_active_order(
@@ -155,7 +157,7 @@ while True:
     else:
         pass
 
-    if tp_order == False and sell_position_size != 0 and bid < min_tp_distance: # if no TP and Bid lower than TP close with Market
+    if tp_order == False and sell_position_size != 0 and bid < min_tp_distance:
         try:
             print('| ➟ Placing TP...')
             place_active_order = client.place_active_order(
@@ -166,7 +168,7 @@ while True:
     else:
         pass
         
-    if tp_order == True and sell_position_size > buy_order_size: # if position size not equal to TP size cancel TP and place new with correct amount
+    if tp_order == True and sell_position_size > buy_order_size:
         try:               
             print('| ✗ Canceling TP...')
             cancel_buy_orders()
@@ -183,14 +185,14 @@ while True:
 
     # Entry
 
-    if sell_position_size == 0: # if no entry and ask > EMA 6 High place Limit entry
+    if sell_position_size == 0:
         try:               
             print('| ✗ Canceling Active Entry Order...')
             cancel_sell_orders()
         except:
             pass
     
-    if ask > ema6hgh and good_stoch_80 == True and sell_position_size == 0: # if no entry and ask > EMA 6 High place Limit entry
+    if ask > ema6hgh and good_stoch_80 == True and sell_position_size == 0:
         try:               
             print('| ➟ Placing Entry Order...')
             place_active_order = client.place_active_order(
