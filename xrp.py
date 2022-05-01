@@ -11,9 +11,11 @@ client = HTTP(api_key=config.api_key,api_secret=config.api_secret)
 qty1 = config.qty1
 maxq = config.maxq
 
-##########################
-symbol = 'XRPUSDT'
-##########################
+symbol = config.symbol
+stoHm = config.stoHm
+stoLm = config.stoLm
+stoHs = config.stoHs
+stoLs = config.stoLs
 
 decimals = 4
 
@@ -108,37 +110,58 @@ def cancel_buy_orders():
             else:
                 pass
     except TypeError:
-        pass 
-
-
+        pass
 
 while True:
 
-    print('♌')
+    print('♌',symbol)
     
-    stoch15()
-    print('|   Stoch Main:',real_sto, '|', real_stos, ':Stoch Sgnl')
+    try:
+        stoch15()
+        print('|   Stoch Main:',real_sto, '|', real_stos, ':Stoch Sgnl')
+    except:
+        print('⛔ Error Loading Stochastic Data')
+        pass 
 
-    get_6ema()
-    print('|   EMA 6 High:',ema6hgh, '|', ema6low, ':EMA 6 Low')
+    try:
+        get_6ema()
+        print('|   EMA 6 High:',ema6hgh, '|', ema6low, ':EMA 6 Low')
+    except:
+        print('⛔ Error Loading EMA 6 Data')
+        pass
 
     # get_60ema()
     # print('| EMA 60 Close:' ,ema60)
     
-    getOrderBook()
-    print('|          Ask:',ask, '|', bid, ':Bid')
-    
-    get_position()
-    get_buy_order()
-    get_sell_order()
-    
+    try:
+        getOrderBook()
+        print('|          Ask:',ask, '|', bid, ':Bid')
+    except:
+        print('⛔ Error Getting Orderbook Data')
+        pass
 
+    try:
+        get_position()
+    except:
+        print('⛔ Error Getting Position Data')
+        pass
+    try:
+        get_buy_order()
+    except:
+        print('⛔ Error Getting TP Data')
+        pass
+    try:
+        get_sell_order()
+    except:
+        print('⛔ Error Getting Entry Data')
+        pass
+    
     min_tp_distance = round(sell_position_prce - ((ema6hgh - ema6low)/2),decimals)
     tp_distance = round(ema6hgh - (ema6hgh - ema6low),decimals)
     entry = round(ema6hgh + (ema6hgh - ema6low),decimals)
 
-    good_stoch_80 = real_sto > 80 and real_stos > 80
-    good_stoch_20 = real_sto < 20 and real_stos < 20
+    good_stoch_H = real_sto > stoHm and real_stos > stoHs
+    good_stoch_L = real_sto < stoLm and real_stos < stoLs
 
     # good_EMA60 = bid > ema60
 
@@ -192,7 +215,7 @@ while True:
         except:
             pass
     
-    if ask > ema6hgh and good_stoch_80 == True and sell_position_size == 0:
+    if ask > ema6hgh and good_stoch_H == True and sell_position_size == 0:
         try:               
             print('| ➟ Placing Entry Order...')
             place_active_order = client.place_active_order(
@@ -212,7 +235,7 @@ while True:
         except:
             pass
     
-    if sell_position_size >= qty1 and ema6low > sell_position_prce and ask > ema6hgh and good_stoch_80 == True and sell_position_size < maxq:
+    if sell_position_size >= qty1 and ema6low > sell_position_prce and ask > ema6hgh and good_stoch_H == True and sell_position_size < maxq:
         try:               
             print('| ➟ Placing Active Average Entry Order...')
             place_active_order = client.place_active_order(
@@ -223,14 +246,16 @@ while True:
         except:
             pass
 
+    # Drawings
+
     if ask > ema6hgh:
         print('| 🗹 Ask > EMA 6 High') 
     else:
         print('| Ask < EMA 6 High')
-    if good_stoch_80 == True:
-        print('| 🗹 Stoch > 80')
+    if good_stoch_H == True:
+        print('| 🗹 Stoch >',stoHs)
     else:
-        print('| Stoch < 80')
+        print('| Stoch <',stoHs)
 
     print('------------------------------------------')
     if maxq > sell_position_size:
