@@ -4,7 +4,7 @@ Simple scalp bot for Bybit USDT Perpetual futures written on python
 ![image](https://user-images.githubusercontent.com/81808867/166137110-5b729e9a-88a6-409e-8891-9e6fb205bd17.png)
 
 
-This simple bot written with python and it enters the market using limit orders and immediately place limit close order. In this example it will trade on XRPUSDT pair, but you can change it in settings. Please keep in mind that this example bot will <u>open only short</u> trades.
+This simple bot written with python.If ask > EMA 6 high and Stoch > 80 it enters the market using limit orders and immediately place limit close order. In this example it will trade on XRPUSDT pair, but you can change it in settings. Please keep in mind that this example bot will <u>open only short</u> trades.
 
 ## How to use
 - Edit config.py file, add you API credentials and change initial lot size.
