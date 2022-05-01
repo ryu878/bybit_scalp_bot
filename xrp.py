@@ -92,7 +92,7 @@ while True:
 
     # TP 
         
-    if tp_order == False and sell_position_size != 0 and bid > min_tp_distance: # if no TP and Bid higher than TP place Limit
+    if tp_order == False and sell_position_size != 0 and bid > min_tp_distance:
         try:
             print('==> Placing TP Order...')
             place_active_order = client.place_active_order(
@@ -105,7 +105,7 @@ while True:
     else:
         pass
 
-    if tp_order == False and sell_position_size != 0 and bid < min_tp_distance: # if no TP and Bid lower than TP close with Market
+    if tp_order == False and sell_position_size != 0 and bid < min_tp_distance:
         try:
             print('==> Placing TP Order...')
             place_active_order = client.place_active_order(
@@ -116,7 +116,7 @@ while True:
     else:
         pass
         
-    if tp_order == True and sell_position_size > buy_order_size: # if position size not equal to TP size cancel TP and place new with correct amount
+    if tp_order == True and sell_position_size > buy_order_size:
         try:               
             print('==> Canceling TP Order...')
             cancel_active_order = client.cancel_active_order(order_id=buy_order_id)
