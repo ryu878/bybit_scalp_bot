@@ -23,7 +23,7 @@ Run pip install to install:
 - pybit
 
 ## Known issue
-Sometimes (very rare) Bybit API return less than 18 candles of OHCL data so it is impossible to calculate EMA 6. Will change that for websocket in new versions for more stable results.
+First you have to place sell order manually and delete it. Or leave it bot will delete it. Or it will send errors about entry size.
 
 To start trading on Bybit please register here: https://www.bybit.com/en-US/invite?ref=P11NJW
 
