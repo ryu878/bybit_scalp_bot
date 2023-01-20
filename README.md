@@ -16,11 +16,14 @@ This bot will execute only short trades
 
 ## Requirements
 Run pip install to install:
-- ta
-- time
-- ccxt
-- pandas
-- pybit
+
+<code>pip install ta</code>
+
+<code>pip install ccxt</code>
+
+<code>pip install pandas</code>
+
+<code>pip install pybit</code>
 
 ## Known issue
 First you have to place sell order manually and delete it. Or leave it bot will delete it. Or it will send errors about entry size.
