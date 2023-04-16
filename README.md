@@ -23,7 +23,7 @@ Run pip install to install:
 
 <code>pip install pandas</code>
 
-<code>pip install pybit</code>
+<code>pip install pybit==2.4.1</code>
 
 ## Known issue
 First you have to place sell order manually and delete it. Or leave it bot will delete it. Or it will send errors about entry size.
