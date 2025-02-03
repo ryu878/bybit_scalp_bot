@@ -1,4 +1,5 @@
-# Bybit Scalp Bot <a href="https://github.com/ryu878/bybit_scalp_bot/blob/main/LICENSE.MD">![image](https://camo.githubusercontent.com/83d3746e5881c1867665223424263d8e604df233d0a11aae0813e0414d433943/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e737667)</a>
+# Bybit Scalp Bot 
+
 Simple scalp bot for Bybit USDT Perpetual futures written on python
 
 ![image](https://user-images.githubusercontent.com/81808867/166137110-5b729e9a-88a6-409e-8891-9e6fb205bd17.png)
@@ -40,10 +41,8 @@ To contact me:
 
 Discord: https://discord.gg/zSw58e9Uvf
 
-Join Bybit and receive up to $6,045 in Bonuses: https://www.bybit.com/invite?ref=P11NJW
+Join Bybit and receive up to $6,045 in Bonuses: https://www.bybit.com/invite?ref=X2PZB
 
-Join me at Bybit and earn exclusive rewards with Bybit's Referral Program! 
-Up to 1,025 USDT in rewards await you. https://www.bybit.com/invite?ref=P11NJW
 
 ## VPS for bots and scripts
 I prefer using DigitalOcean. 
