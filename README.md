@@ -29,9 +29,6 @@ Run pip install to install:
 ## Known issue
 First you have to place sell order manually and delete it. Or leave it bot will delete it. Or it will send errors about entry size.
 
-To start trading on Bybit please register here: https://www.bybit.com/en-US/invite?ref=P11NJW
-
-
 ## Disclaimer
 This project is for informational and educational purposes only. You should not use this information or any other material as legal, tax, investment, financial or other advice. Nothing contained here is a recommendation, endorsement or offer by me to buy or sell any securities or other financial instruments. If you intend to use real money, use it at your own risk. Under no circumstances will I be responsible or liable for any claims, damages, losses, expenses, costs or liabilities of any kind, including but not limited to direct or indirect damages for loss of profits.
 
@@ -41,7 +38,9 @@ To contact me:
 
 Discord: https://discord.gg/zSw58e9Uvf
 
-Join Bybit and receive up to $6,045 in Bonuses: https://www.bybit.com/invite?ref=X2PZB
+🐀 Join Bybit and receive up to $6,045 in Bonuses: https://www.bybit.com/invite?ref=X2PZB
+
+😎 Register on BingX and get a **20% discount** on fees: https://bingx.com/invite/HAJ8YQQAG/
 
 
 ## VPS for bots and scripts
